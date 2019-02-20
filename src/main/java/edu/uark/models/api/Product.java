@@ -5,6 +5,8 @@ import java.util.UUID;
 
 import edu.uark.models.entities.ProductEntity;
 
+//Need to create an Employee class like this product one
+
 public class Product {
 	private UUID id;
 	public UUID getId() {
