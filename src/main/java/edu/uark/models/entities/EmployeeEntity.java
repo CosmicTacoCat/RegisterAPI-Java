@@ -16,7 +16,7 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 	protected void fillFromRecord(ResultSet rs) throws SQLException {
 		this.First_Name = rs.getString(EmployeeFieldNames.FIRST_NAME);
 		this.Last_Name = rs.getString(EmployeeFieldNames.LAST_NAME);
-		this.Employee_Id = rs.getInt(EmployeeFieldNames.EMPLOUEE_ID);
+		this.Employee_Id = rs.getInt(EmployeeFieldNames.EMPLOYEE_ID);
 		this.Active = rs.getString(EmployeeFieldNames.ACTIVE);
 		this.Title = rs.getString(EmployeeFieldNames.TITLE);
 		this.Manager = rs.getInt(EmployeeFieldNames.MANAGER);
