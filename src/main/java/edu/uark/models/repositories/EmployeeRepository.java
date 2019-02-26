@@ -32,12 +32,12 @@ public class EmployeeRepository extends BaseRepository<EmployeeEntity> implement
 			}
 		);
 	}
-	
+
 	@Override
 	public EmployeeEntity createOne() {
 		return new EmployeeEntity();
 	}
-	
+
 	public EmployeeRepository() {
 		super(DatabaseTable.Employee);
 	}

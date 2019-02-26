@@ -29,7 +29,7 @@ public class ProductQuery implements ResultCommandInterface<Product> {
 		this.productId = productId;
 		return this;
 	}
-	
+
 	private ProductRepositoryInterface productRepository;
 	public ProductRepositoryInterface getProductRepository() {
 		return this.productRepository;
@@ -38,7 +38,7 @@ public class ProductQuery implements ResultCommandInterface<Product> {
 		this.productRepository = productRepository;
 		return this;
 	}
-	
+
 	public ProductQuery() {
 		this.productRepository = new ProductRepository();
 	}
