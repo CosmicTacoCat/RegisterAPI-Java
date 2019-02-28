@@ -22,10 +22,10 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 	protected void fillFromRecord(ResultSet rs) throws SQLException {
 		this.First_Name = rs.getString(EmployeeFieldNames.FIRST_NAME);
 		this.Last_Name = rs.getString(EmployeeFieldNames.LAST_NAME);
-		this.Employee_Id = rs.getInt(EmployeeFieldNames.EMPLOYEE_ID);
+		this.Employee_Id = rs.getString(EmployeeFieldNames.EMPLOYEE_ID);
 		this.Active = rs.getString(EmployeeFieldNames.ACTIVE);
 		this.Title = rs.getString(EmployeeFieldNames.TITLE);
-		this.Manager = rs.getInt(EmployeeFieldNames.MANAGER);
+		this.Manager = rs.getString(EmployeeFieldNames.MANAGER);
 		this.Password = rs.getString(EmployeeFieldNames.PASSWORD);
 		this.Created = LocalDateTime.parse(rs.getString(EmployeeFieldNames.CREATED),format);
 	}
@@ -68,11 +68,11 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 		}
 		return this;
 	}
-		private int Employee_Id;
-	public int getEmployee_Id() {
+		private String Employee_Id;
+	public String getEmployee_Id() {
 		return this.Employee_Id;
 	}
-	public EmployeeEntity setEmployee_Id(int Employee_Id) {
+	public EmployeeEntity setEmployee_Id(String Employee_Id) {
 		if (!StringUtils.equals(this.Employee_Id, Employee_Id)) {
 			this.Employee_Id = Employee_Id;
 			this.propertyChanged(EmployeeFieldNames.EMPLOYEE_ID);
@@ -107,11 +107,11 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 		return this;
 	}
 	
-	private int Manager;
-	public int getManager() {
+	private String Manager;
+	public String getManager() {
 		return this.Manager;
 	}
-	public EmployeeEntity setManager(int Manager) {
+	public EmployeeEntity setManager(String Manager) {
 		if (!StringUtils.equals(this.Manager, Manager)) {
 			this.Manager = Manager;
 			this.propertyChanged(EmployeeFieldNames.MANAGER);

@@ -33,11 +33,11 @@ public class Employee {
 		return this;
 	}
 	
-	private int employee_id;
-	public int getEmployee_Id() {
+	private String employee_id;
+	public String getEmployee_Id() {
 		return this.employee_id;
 	}
-	public Employee setEmployee_Id(int employee_id) {
+	public Employee setEmployee_Id(String employee_id) {
 		this.employee_id = employee_id;
 		return this;
 	}
@@ -60,11 +60,11 @@ public class Employee {
 		return this;
 	}
 	
-	private int manager;
-	public int getManager() {
+	private String manager;
+	public String getManager() {
 		return this.manager;
 	}
-	public Employee setManager(int manager) {
+	public Employee setManager(String manager) {
 		this.manager = manager;
 		return this;
 	}

@@ -4,5 +4,5 @@ import edu.uark.dataaccess.repository.BaseRepositoryInterface;
 import edu.uark.models.entities.EmployeeEntity;
 
 public interface EmployeeRepositoryInterface extends BaseRepositoryInterface<EmployeeEntity> {
-	EmployeeEntity byFirst_Name(String First_Name);
+	EmployeeEntity byEmployee_Id(String Employee_Id);
 }
