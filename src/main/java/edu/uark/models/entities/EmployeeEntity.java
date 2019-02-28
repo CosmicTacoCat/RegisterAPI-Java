@@ -134,12 +134,14 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 	}
 
 	private LocalDateTime Created;
-	public String getCreated() {
+	public LocalDateTime getCreated() {
 		return this.Created;
 	}
 	public LocalDateTime setCreated(LocalDateTime Created) {
-		if(!StringUtils.equals(this.Created, Created))
-		return this.Created;
+		if(!StringUtils.equals(this.Created, Created)){
+			this.Created = Created;
+			return this.Created;
+		}
 	}
 	
 	
