@@ -49,6 +49,13 @@ public class EmployeeRestController {
 			execute();
 	}
 
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public Employee loginEmployee(@RequestBody EmployeeLogin employeeLogin) {
+		return (new EmployeeLoginCommand()).
+			setApiEmployeeLogin(employeeLogin).
+			execute();
+	}
+
 	@RequestMapping(value = "/{recordId}", method = RequestMethod.PUT)
 	public Employee updateEmployee(@PathVariable UUID recordId, @RequestBody Employee employee) {
 		return (new EmployeeUpdateCommand()).
