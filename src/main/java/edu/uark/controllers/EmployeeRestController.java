@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import edu.uark.commands.employees.EmployeeByEmployeeIdQuery;
 import edu.uark.commands.employees.EmployeeCreateCommand;
 import edu.uark.commands.employees.EmployeeDeleteCommand;
+import edu.uark.commands.employees.EmployeeLoginCommand;
 import edu.uark.commands.employees.EmployeeQuery;
 import edu.uark.commands.employees.EmployeeUpdateCommand;
 import edu.uark.commands.employees.EmployeesQuery;

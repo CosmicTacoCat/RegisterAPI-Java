@@ -6,12 +6,18 @@ import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.time.*;
+import java.time.format.*;
+
 import edu.uark.dataaccess.entities.BaseEntity;
 import edu.uark.dataaccess.repository.DatabaseTable;
 import edu.uark.models.api.Employee;
 import edu.uark.models.entities.fieldnames.EmployeeFieldNames;
 
 public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
+
+	public static DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
 	@Override
 	protected void fillFromRecord(ResultSet rs) throws SQLException {
 		this.First_Name = rs.getString(EmployeeFieldNames.FIRST_NAME);
@@ -21,6 +27,7 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 		this.Title = rs.getString(EmployeeFieldNames.TITLE);
 		this.Manager = rs.getInt(EmployeeFieldNames.MANAGER);
 		this.Password = rs.getString(EmployeeFieldNames.PASSWORD);
+		this.Created = LocalDateTime.parse(rs.getString(EmployeeFieldNames.CREATED),format);
 	}
 
 	@Override
@@ -32,6 +39,7 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 		record.put(EmployeeFieldNames.TITLE, this.Title);
 		record.put(EmployeeFieldNames.MANAGER, this.Manager);
 		record.put(EmployeeFieldNames.PASSWORD, this.Password);
+		record.put(EmployeeFieldNames.CREATED, this.Created);
 		
 		return record;
 	}
@@ -58,7 +66,8 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 			this.Last_Name = Last_Name;
 			this.propertyChanged(EmployeeFieldNames.LAST_NAME);
 		}
-		
+		return this;
+	}
 		private int Employee_Id;
 	public int getEmployee_Id() {
 		return this.Employee_Id;
@@ -98,7 +107,7 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 		return this;
 	}
 	
-		private int Manager;
+	private int Manager;
 	public int getManager() {
 		return this.Manager;
 	}
@@ -123,18 +132,27 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 		
 		return this;
 	}
+
+	private LocalDateTime Created;
+	public String getCreated() {
+		return this.Created;
+	}
+	public LocalDateTime setCreated(LocalDateTime Created) {
+		if(!StringUtils.equals(this.Created, Created))
+		return this.Created;
+	}
 	
 	
 	public Employee synchronize(Employee apiEmployee) {
 		this.setFirst_Name(apiEmployee.getFirst_Name());
-		this.setLast_Name(apiEmployee.getLast_name());
+		this.setLast_Name(apiEmployee.getLast_Name());
 		this.setEmployee_Id(apiEmployee.getEmployee_Id());
 		this.setActive(apiEmployee.getActive());
 		this.setTitle(apiEmployee.getTitle());
 		this.setManager(apiEmployee.getManager());
 		this.setPassword(apiEmployee.getPassword());
 		apiEmployee.setId(this.getId());
-		apiEmployee.setCreated(this.getCreated());
+		this.setCreated(apiEmployee.getCreated());
 		
 		return apiEmployee;
 	}

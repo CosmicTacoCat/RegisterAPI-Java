@@ -10,7 +10,7 @@ import edu.uark.models.entities.EmployeeEntity;
 import edu.uark.models.repositories.EmployeeRepository;
 import edu.uark.models.repositories.interfaces.EmployeeRepositoryInterface;
 
-public class EmployeeCreateCommand implements ResultCommandInterface<Employee> {
+public class EmployeeLoginCommand implements ResultCommandInterface<Employee> {
 	@Override
 	public Employee execute() {
 		// //Validations
@@ -44,12 +44,12 @@ public class EmployeeCreateCommand implements ResultCommandInterface<Employee> {
 	public EmployeeRepositoryInterface getEmployeeRepository() {
 		return this.employeeRepository;
 	}
-	public EmployeeCreateCommand setEmployeeRepository(EmployeeRepositoryInterface employeeRepository) {
+	public EmployeeLoginCommand setEmployeeRepository(EmployeeRepositoryInterface employeeRepository) {
 		this.employeeRepository = employeeRepository;
 		return this;
 	}
 
-	public EmployeeCreateCommand() {
+	public EmployeeLoginCommand() {
 		this.employeeRepository = new EmployeeRepository();
 	}
 }

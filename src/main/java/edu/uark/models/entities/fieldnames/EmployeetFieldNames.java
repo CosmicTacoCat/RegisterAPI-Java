@@ -10,4 +10,5 @@ public class EmployeeFieldNames extends BaseFieldNames {
 	public static final String TITLE = "title";
 	public static final String MANAGER = "manager";
 	public static final String PASSWORD = "password";
+	public static final String CREATED = "created";
 }
