@@ -23,6 +23,9 @@ public class EmployeeLoginCommand implements ResultCommandInterface<Employee> {
 		// }
 
 		EmployeeEntity employeeEntity = this.employeeRepository.byEmployee_Id(this.apiEmployeeLogin.getEmployee_Id());
+
+		System.out.println(employeeEntity.getPassword());
+
 		if (employeeEntity == null) {
 			throw new ConflictException("Employee ID"); //Employee ID already defined for another employee.
 		}
