@@ -52,7 +52,7 @@ public class EmployeeRestController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public Employee loginEmployee(@RequestBody EmployeeLogin employeeLogin) {
+	public Employee EmployeeLogin (@RequestBody EmployeeLogin employeeLogin) {
 		return (new EmployeeLoginCommand()).
 			setApiEmployeeLogin(employeeLogin).
 			execute();
