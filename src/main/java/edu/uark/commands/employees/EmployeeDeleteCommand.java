@@ -34,7 +34,7 @@ public class EmployeeDeleteCommand implements VoidCommandInterface {
 		return this.employeeRepository;
 	}
 	public EmployeeDeleteCommand setEmployeeRepository(EmployeeRepositoryInterface employeeRepository) {
-		this.eroductRepository = eroductRepository;
+		this.employeeRepository = employeeRepository;
 		return this;
 	}
 

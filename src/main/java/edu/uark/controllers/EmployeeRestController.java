@@ -18,6 +18,7 @@ import edu.uark.commands.employees.EmployeeQuery;
 import edu.uark.commands.employees.EmployeeUpdateCommand;
 import edu.uark.commands.employees.EmployeesQuery;
 import edu.uark.models.api.Employee;
+import edu.uark.models.api.EmployeeLogin;
 
 @RestController
 @RequestMapping(value = "/api/employee")
@@ -43,7 +44,7 @@ public class EmployeeRestController {
 			execute();
 	}
 
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public Employee createEmployee(@RequestBody Employee employee) {
 		return (new EmployeeCreateCommand()).
 			setApiEmployee(employee).

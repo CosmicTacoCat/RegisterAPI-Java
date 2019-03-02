@@ -58,7 +58,7 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 	}
 
 	private String Last_Name;
-	public String getLast_name(){
+	public String getLast_Name(){
 		return this.Last_Name;
 	}
 	public EmployeeEntity setLast_Name(String Last_Name){
@@ -68,7 +68,8 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 		}
 		return this;
 	}
-		private String Employee_Id;
+		
+	private String Employee_Id;
 	public String getEmployee_Id() {
 		return this.Employee_Id;
 	}
@@ -81,7 +82,7 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 		return this;
 	}
 	
-		private String Active;
+	private String Active;
 	public String getActive() {
 		return this.Active;
 	}
@@ -94,7 +95,7 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 		return this;
 	}
 	
-		private String Title;
+	private String Title;
 	public String getTitle() {
 		return this.Title;
 	}
@@ -137,11 +138,12 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 	public LocalDateTime getCreated() {
 		return this.Created;
 	}
-	public LocalDateTime setCreated(LocalDateTime Created) {
-		if(!StringUtils.equals(this.Created, Created)){
+	public EmployeeEntity setCreated(LocalDateTime Created) {
+		if(!(this.Created == Created)){
 			this.Created = Created;
-			return this.Created;
+			this.propertyChanged(EmployeeFieldNames.CREATED);
 		}
+		return this;
 	}
 	
 	
@@ -153,14 +155,15 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 		this.setTitle(apiEmployee.getTitle());
 		this.setManager(apiEmployee.getManager());
 		this.setPassword(apiEmployee.getPassword());
+		
 		apiEmployee.setId(this.getId());
-		this.setCreated(apiEmployee.getCreated());
+		apiEmployee.setCreated(this.getCreated());
 		
 		return apiEmployee;
 	}
 	
 	public EmployeeEntity() {
-		super(DatabaseTable.Employee);
+		super(DatabaseTable.EMPLOYEE);
 		
 		this.First_Name = StringUtils.EMPTY;
 		this.Last_Name = StringUtils.EMPTY;
@@ -172,10 +175,10 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 	}
 	
 	public EmployeeEntity(Employee apiEmployee) {
-		super(DatabaseTable.Employee);
+		super(DatabaseTable.EMPLOYEE);
 		
 		this.First_Name = apiEmployee.getFirst_Name();
-		this.Last_Name = apiEmployee.getLast_name();
+		this.Last_Name = apiEmployee.getLast_Name();
 		this.Employee_Id = apiEmployee.getEmployee_Id();
 		this.Active = apiEmployee.getActive();
 		this.Title = apiEmployee.getTitle();

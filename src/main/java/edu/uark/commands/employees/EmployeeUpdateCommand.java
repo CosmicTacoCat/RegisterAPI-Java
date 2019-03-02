@@ -12,7 +12,7 @@ import edu.uark.models.entities.EmployeeEntity;
 import edu.uark.models.repositories.EmployeeRepository;
 import edu.uark.models.repositories.interfaces.EmployeeRepositoryInterface;
 
-public class EmployeeUpdateCommand implements ResultCommandInterface<Employee> {
+public class EmployeeUpdateCommand implements ResultCommandInterface<Employee> { 
 	@Override
 	public Employee execute() {
 		//Validations
@@ -51,7 +51,7 @@ public class EmployeeUpdateCommand implements ResultCommandInterface<Employee> {
 		return this;
 	}
 
-	private EmployeeRepositoryInterface EmployeeRepository;
+	private EmployeeRepositoryInterface employeeRepository;
 	public EmployeeRepositoryInterface getEmployeeRepository() {
 		return this.employeeRepository;
 	}

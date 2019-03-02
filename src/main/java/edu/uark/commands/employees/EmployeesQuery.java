@@ -29,6 +29,6 @@ public class EmployeesQuery implements ResultCommandInterface<List<Employee>> {
 	}
 
 	public EmployeesQuery() {
-		this.employeeRepository = new employeeRepository();
+		this.employeeRepository = new EmployeeRepository();
 	}
 }

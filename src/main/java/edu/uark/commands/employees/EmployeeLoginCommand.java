@@ -2,6 +2,8 @@ package edu.uark.commands.employees;
 
 import org.apache.commons.lang3.StringUtils;
 
+import javax.ws.rs.NotFoundException;
+
 import edu.uark.commands.ResultCommandInterface;
 import edu.uark.controllers.exceptions.ConflictException;
 import edu.uark.controllers.exceptions.UnprocessableEntityException;
@@ -37,7 +39,7 @@ public class EmployeeLoginCommand implements ResultCommandInterface<Employee> {
 	public EmployeeLogin getApiEmployeeLogin() {
 		return this.apiEmployeeLogin;
 	}
-	public EmployeeLoginCommand setApiEmployee(EmployeeLogin apiEmployeeLogin) {
+	public EmployeeLoginCommand setApiEmployeeLogin(EmployeeLogin apiEmployeeLogin) {
 		this.apiEmployeeLogin = apiEmployeeLogin;
 		return this;
 	}

@@ -39,6 +39,6 @@ public class EmployeeRepository extends BaseRepository<EmployeeEntity> implement
 	}
 
 	public EmployeeRepository() {
-		super(DatabaseTable.Employee);
+		super(DatabaseTable.EMPLOYEE);
 	}
 }
