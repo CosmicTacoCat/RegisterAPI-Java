@@ -21,7 +21,7 @@ import edu.uark.models.api.Employee;
 import edu.uark.models.api.EmployeeLogin;
 
 @RestController
-@RequestMapping(value = "/api/employee")
+@RequestMapping(value = "/employee")
 
 //Might need to use this as a reference when creating the existing employee search.
 public class EmployeeRestController {
