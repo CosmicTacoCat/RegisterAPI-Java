@@ -2,7 +2,7 @@ package edu.uark.commands.employees;
 
 import org.apache.commons.lang3.StringUtils;
 
-import javax.ws.rs.NotFoundException;
+import edu.uark.controllers.exceptions.NotFoundException;
 
 import edu.uark.commands.ResultCommandInterface;
 import edu.uark.controllers.exceptions.ConflictException;
