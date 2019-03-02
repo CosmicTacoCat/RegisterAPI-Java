@@ -20,6 +20,7 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 
 	@Override
 	protected void fillFromRecord(ResultSet rs) throws SQLException {
+		this.Record_Id = rs.getString(EmployeeFieldNames.RECORD_ID);
 		this.First_Name = rs.getString(EmployeeFieldNames.FIRST_NAME);
 		this.Last_Name = rs.getString(EmployeeFieldNames.LAST_NAME);
 		this.Employee_Id = rs.getString(EmployeeFieldNames.EMPLOYEE_ID);
@@ -32,6 +33,7 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 
 	@Override
 	protected Map<String, Object> fillRecord(Map<String, Object> record) {
+		record.put(EmployeeFieldNames.RECORD_ID, this.Record_Id);
 		record.put(EmployeeFieldNames.FIRST_NAME, this.First_Name);
 		record.put(EmployeeFieldNames.LAST_NAME, this.Last_Name);
 		record.put(EmployeeFieldNames.EMPLOYEE_ID, this.Employee_Id);
@@ -42,6 +44,19 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 		record.put(EmployeeFieldNames.CREATED, this.Created);
 		
 		return record;
+	}
+
+	private String Record_Id;
+	public String getRecord_Id() {
+		return this.Record_Id;
+	}
+	public EmployeeEntity setRecord_Id(String Record_Id) {
+		if (!StringUtils.equals(this.Record_Id, Record_Id)) {
+			this.Record_Id = Record_Id;
+			this.propertyChanged(EmployeeFieldNames.RECORD_ID);
+		}
+		
+		return this;
 	}
 
 	private String First_Name;
