@@ -16,7 +16,7 @@ public class EmployeesQuery implements ResultCommandInterface<List<Employee>> {
 			stream().
 			map(mp -> (new Employee(mp))).
 			collect(Collectors.toList());
-	}
+	} 
 
 	//Properties
 	private EmployeeRepositoryInterface employeeRepository;
