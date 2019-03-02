@@ -6,12 +6,12 @@ import java.util.UUID;
 import edu.uark.models.entities.EmployeeEntity;
 
 public class Employee {
-	private UUID record_id;
+	private UUID id;
 	public UUID getId() {
-		return this.record_id;
+		return this.id;
 	}
-	public Employee setId(UUID record_id) {
-		this.record_id = record_id;
+	public Employee setId(UUID id) {
+		this.id = id;
 		return this;
 	}
 	
@@ -78,12 +78,12 @@ public class Employee {
 		return this;
 	}
 	
-	private LocalDateTime created;
-	public LocalDateTime getCreated() {
-		return this.created;
+	private LocalDateTime createdOn;
+	public LocalDateTime getCreatedOn() {
+		return this.createdOn;
 	}
-	public Employee setCreated(LocalDateTime created) {
-		this.created = created;
+	public Employee setCreatedOn(LocalDateTime createdOn) {
+		this.createdOn = createdOn;
 		return this;
 	}
 
@@ -96,13 +96,13 @@ public class Employee {
 		this.title = "";
 		this.manager = "";
 		this.password = "";
-		this.record_id = new UUID(0, 0);
-		this.created = LocalDateTime.now();
+		this.id = new UUID(0, 0);
+		this.createdOn = LocalDateTime.now();
 	}
 	
 	public Employee(EmployeeEntity EmployeeEntity) {
-		this.record_id = EmployeeEntity.getId();
-		this.created = EmployeeEntity.getCreated();
+		this.id = EmployeeEntity.getId();
+		this.createdOn = EmployeeEntity.getCreatedOn();
 		this.first_name = EmployeeEntity.getFirst_Name();
 		this.last_name = EmployeeEntity.getLast_Name();
 		this.employee_id = EmployeeEntity.getEmployee_Id();

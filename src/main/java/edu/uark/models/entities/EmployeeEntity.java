@@ -20,7 +20,6 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 
 	@Override
 	protected void fillFromRecord(ResultSet rs) throws SQLException {
-		this.Record_Id = rs.getString(EmployeeFieldNames.RECORD_ID);
 		this.First_Name = rs.getString(EmployeeFieldNames.FIRST_NAME);
 		this.Last_Name = rs.getString(EmployeeFieldNames.LAST_NAME);
 		this.Employee_Id = rs.getString(EmployeeFieldNames.EMPLOYEE_ID);
@@ -28,12 +27,10 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 		this.Title = rs.getString(EmployeeFieldNames.TITLE);
 		this.Manager = rs.getString(EmployeeFieldNames.MANAGER);
 		this.Password = rs.getString(EmployeeFieldNames.PASSWORD);
-		this.Created = LocalDateTime.parse(rs.getString(EmployeeFieldNames.CREATED),format);
 	}
 
 	@Override
 	protected Map<String, Object> fillRecord(Map<String, Object> record) {
-		record.put(EmployeeFieldNames.RECORD_ID, this.Record_Id);
 		record.put(EmployeeFieldNames.FIRST_NAME, this.First_Name);
 		record.put(EmployeeFieldNames.LAST_NAME, this.Last_Name);
 		record.put(EmployeeFieldNames.EMPLOYEE_ID, this.Employee_Id);
@@ -41,22 +38,8 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 		record.put(EmployeeFieldNames.TITLE, this.Title);
 		record.put(EmployeeFieldNames.MANAGER, this.Manager);
 		record.put(EmployeeFieldNames.PASSWORD, this.Password);
-		record.put(EmployeeFieldNames.CREATED, this.Created);
 		
 		return record;
-	}
-
-	private String Record_Id;
-	public String getRecord_Id() {
-		return this.Record_Id;
-	}
-	public EmployeeEntity setRecord_Id(String Record_Id) {
-		if (!StringUtils.equals(this.Record_Id, Record_Id)) {
-			this.Record_Id = Record_Id;
-			this.propertyChanged(EmployeeFieldNames.RECORD_ID);
-		}
-		
-		return this;
 	}
 
 	private String First_Name;
@@ -148,18 +131,6 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 		
 		return this;
 	}
-
-	private LocalDateTime Created;
-	public LocalDateTime getCreated() {
-		return this.Created;
-	}
-	public EmployeeEntity setCreated(LocalDateTime Created) {
-		if(!(this.Created == Created)){
-			this.Created = Created;
-			this.propertyChanged(EmployeeFieldNames.CREATED);
-		}
-		return this;
-	}
 	
 	
 	public Employee synchronize(Employee apiEmployee) {
@@ -172,7 +143,7 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 		this.setPassword(apiEmployee.getPassword());
 		
 		apiEmployee.setId(this.getId());
-		apiEmployee.setCreated(this.getCreated());
+		apiEmployee.setCreatedOn(this.getCreatedOn());
 		
 		return apiEmployee;
 	}
