@@ -154,7 +154,7 @@ public class EmployeeEntity extends BaseEntity<EmployeeEntity> {
 		this.First_Name = StringUtils.EMPTY;
 		this.Last_Name = StringUtils.EMPTY;
 		this.Employee_Id = StringUtils.EMPTY;
-		this.Active = StringUtils.EMPTY;
+		this.Active = "Yes";
 		this.Title = StringUtils.EMPTY;
 		this.Manager = StringUtils.EMPTY;
 		this.Password = StringUtils.EMPTY;
