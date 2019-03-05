@@ -100,15 +100,15 @@ public class Employee {
 		this.createdOn = LocalDateTime.now();
 	}
 	
-	public Employee(EmployeeEntity EmployeeEntity) {
-		this.id = EmployeeEntity.getId();
-		this.createdOn = EmployeeEntity.getCreatedOn();
-		this.first_name = EmployeeEntity.getFirst_Name();
-		this.last_name = EmployeeEntity.getLast_Name();
-		this.employee_id = EmployeeEntity.getEmployee_Id();
-		this.active = EmployeeEntity.getActive();
-		this.title = EmployeeEntity.getTitle();
-		this.manager = EmployeeEntity.getManager();
-		this.password = EmployeeEntity.getPassword();
+	public Employee(EmployeeEntity employeeEntity) {
+		this.id = employeeEntity.getId();
+		this.createdOn = employeeEntity.getCreatedOn();
+		this.first_name = employeeEntity.getFirst_Name();
+		this.last_name = employeeEntity.getLast_Name();
+		this.employee_id = employeeEntity.getEmployee_Id();
+		this.active = employeeEntity.getActive();
+		this.title = employeeEntity.getTitle();
+		this.manager = employeeEntity.getManager();
+		this.password = employeeEntity.getPassword();
 	}
 }
