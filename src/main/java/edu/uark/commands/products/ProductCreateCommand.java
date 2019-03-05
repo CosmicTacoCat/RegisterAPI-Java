@@ -54,5 +54,5 @@ public class ProductCreateCommand implements ResultCommandInterface<Product> {
 	
 	public ProductCreateCommand() {
 		this.productRepository = new ProductRepository();
-	}
+	} 
 }
