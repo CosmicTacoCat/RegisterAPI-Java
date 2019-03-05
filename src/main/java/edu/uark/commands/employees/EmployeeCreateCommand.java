@@ -14,9 +14,9 @@ public class EmployeeCreateCommand implements ResultCommandInterface<Employee> {
 	@Override
 	public Employee execute() {
 		//Validations
-		if (StringUtils.isBlank(this.apiEmployee.getEmployee_Id())) {
+		/*if (StringUtils.isBlank(this.apiEmployee.getEmployee_Id())) {
 			throw new UnprocessableEntityException("Employee ID");
-		}
+		}*/
 
 		EmployeeEntity employeeEntity = this.employeeRepository.byEmployee_Id(this.apiEmployee.getEmployee_Id());
 		if (employeeEntity != null) {

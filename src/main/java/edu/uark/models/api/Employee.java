@@ -89,7 +89,7 @@ public class Employee {
 
 	public Employee() {
 		
-		this.first_name = "";
+		this.first_name = "Earl";
 		this.last_name = "";
 		this.employee_id = "";
 		this.active = "";
