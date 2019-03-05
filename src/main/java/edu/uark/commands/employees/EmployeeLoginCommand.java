@@ -45,11 +45,11 @@ public class EmployeeLoginCommand implements ResultCommandInterface<Employee> {
 		return this;
 	}
 
-	private EmployeeRepositoryInterface employeeRepository;
-	public EmployeeRepositoryInterface getEmployeeRepository() {
+	private EmployeeRepository employeeRepository;
+	public EmployeeRepository getEmployeeRepository() {
 		return this.employeeRepository;
 	}
-	public EmployeeLoginCommand setEmployeeRepository(EmployeeRepositoryInterface employeeRepository) {
+	public EmployeeLoginCommand setEmployeeRepository(EmployeeRepository employeeRepository) {
 		this.employeeRepository = employeeRepository;
 		return this;
 	}
