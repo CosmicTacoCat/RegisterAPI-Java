@@ -89,10 +89,10 @@ public class Employee {
 
 	public Employee() {
 		
-		this.first_name = "Earl";
+		this.first_name = "";
 		this.last_name = "";
 		this.employee_id = "";
-		//this.active = "";
+		this.active = "";
 		this.title = "";
 		this.manager = "";
 		this.password = "";
