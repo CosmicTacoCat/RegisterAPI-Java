@@ -60,12 +60,12 @@ public class Transaction {
 		return this;
 	}
 
-	private boolean return;
+	private boolean returnType;
 	public boolean getReturn() {
-		return this.return;
+		return this.returnType;
 	}
-	public Transaction setReturn(boolean return) {
-		this.return = return;
+	public Transaction setReturn(boolean returnType) {
+		this.returnType = returnType;
 		return this;
 	}
 
@@ -94,20 +94,20 @@ public class Transaction {
 		this.sub_total = -1;
 		this.total = -1;
 		this.items = -1;
-		this.return = 0;
+		this.returnType = false;
 		this.return_id = -1;
 		this.employee_id = "";
 	}
 	
 	public Transaction(TransactionEntity transactionEntity) {
-		this.trans_id = productEntity.getTrans_id();
-		this.product_id = productEntity.getProduct_id();
-		this.quantity = productEntity.getQuantity();
-		this.sub_total = productEntity.getSub_total();
-		this.total = productEntity.getTotal();
-		this.items = productEntity.getItems();
-		this.return = productEntity.getReturn();
-		this.return_id = productEntity.getReturn_id();
-		this.employee_id = productEntity.getEmployee_id();
+		this.trans_id = transactionEntity.getTrans_id();
+		this.product_id = transactionEntity.getProduct_id();
+		this.quantity = transactionEntity.getQuantity();
+		this.sub_total = transactionEntity.getSub_total();
+		this.total = transactionEntity.getTotal();
+		this.items = transactionEntity.getItems();
+		this.returnType = transactionEntity.getReturn();
+		this.return_id = transactionEntity.getReturn_id();
+		this.employee_id = transactionEntity.getEmployee_id();
 	}
 }
