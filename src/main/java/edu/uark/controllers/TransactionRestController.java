@@ -23,8 +23,8 @@ import edu.uark.models.api.Transaction;
 
 public class TransactionRestController
 {
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/", method = RequestMethod.GET)
 	public List<Transaction> getTransactions() {
 		return (new TransactionsQuery()).execute();
-	}
+	}*/
 }

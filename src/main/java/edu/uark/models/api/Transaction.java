@@ -3,7 +3,7 @@ package edu.uark.models.api;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import edu.uark.models.entities.TransactionEntity;
+//import edu.uark.models.entities.TransactionEntity;
 
 public class Transaction {
 	private int trans_id;
@@ -99,7 +99,7 @@ public class Transaction {
 		this.employee_id = "";
 	}
 	
-	public Transaction(TransactionEntity transactionEntity) {
+	/*public Transaction(TransactionEntity transactionEntity) {
 		this.trans_id = transactionEntity.getTrans_id();
 		this.product_id = transactionEntity.getProduct_id();
 		this.quantity = transactionEntity.getQuantity();
@@ -109,5 +109,5 @@ public class Transaction {
 		this.returnType = transactionEntity.getReturn();
 		this.return_id = transactionEntity.getReturn_id();
 		this.employee_id = transactionEntity.getEmployee_id();
-	}
+	}*/
 }

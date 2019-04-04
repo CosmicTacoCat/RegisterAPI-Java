@@ -14,7 +14,7 @@ import edu.uark.dataaccess.repository.DatabaseTable;
 import edu.uark.models.api.Transaction;
 import edu.uark.models.entities.fieldnames.EmployeeFieldNames;
 
-public class TransactionEntity extends BaseEntity<TransactionEntity> 
+/*public class TransactionEntity extends BaseEntity<TransactionEntity> 
 {
     @Override
 	protected void fillFromRecord(ResultSet rs) throws SQLException {
@@ -41,4 +41,4 @@ public class TransactionEntity extends BaseEntity<TransactionEntity>
     }
     
     
-}
+}*/
