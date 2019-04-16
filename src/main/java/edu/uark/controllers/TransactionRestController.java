@@ -9,22 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-    //import edu.uark.commands.products.ProductByLookupCodeQuery;
-    //import edu.uark.commands.products.ProductCreateCommand;
-    //import edu.uark.commands.products.ProductDeleteCommand;
-    //import edu.uark.commands.products.ProductQuery;
-    //import edu.uark.commands.products.ProductUpdateCommand;
-    //import edu.uark.commands.products.ProductsQuery;
 import edu.uark.models.api.Transaction;
+import edu.uark.commands.transactions.TransactionsQuery;
 
 @RestController
 @RequestMapping(value = "/api/transaction")
 
 public class TransactionRestController
 {
-    /*@RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
 	public List<Transaction> getTransactions() {
 		return (new TransactionsQuery()).execute();
-	}*/
+	}
 }
