@@ -16,11 +16,11 @@ public class TransactionUpdateCommand implements ResultCommandInterface<Transact
 	@Override
 	public Transaction execute() {
 		//Validations
-		if (StringUtils.isBlank(this.apiTransaction.getTrans_id())) {
+		if (this.apiTransaction.getTrans_id() == -1) {
 			throw new UnprocessableEntityException("trans_id");
 		}
 
-		TransactionEntity transactionEntity = this.transactionRepository.get(this.transactionId);
+		TransactionEntity transactionEntity = this.transactionRepository.get(this.trans_id);
 		if (transactionEntity == null) { //No record with the associated record ID exists in the database.
 			throw new NotFoundException("Transaction");
 		}
@@ -33,12 +33,12 @@ public class TransactionUpdateCommand implements ResultCommandInterface<Transact
 	}
 
 	//Properties
-/*	private UUID transactionId;
-	public UUID getProductId() {
-		return this.productId;
-	} */
+	private int trans_id;
+	public int getTrans_id() {
+		return this.trans_id;
+	}
 	public TransactionUpdateCommand setTransactionId(UUID transactionId) {
-		this.transactionId = transactionId;
+		this.trans_id = trans_id;
 		return this;
 	}
 	
