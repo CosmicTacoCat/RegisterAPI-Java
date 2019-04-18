@@ -37,6 +37,27 @@ public class TransactionRepository extends BaseRepository<TransactionEntity> imp
 	public TransactionEntity createOne() {
 		return new TransactionEntity();
 	}
+	
+	//BaseRepository's get method parameter is UUID whereas our transaction ids are integers.
+	public TransactionEntity get(int id) {
+		return firstOrDefaultWhere(
+			null,
+			(new WhereContainer(
+				(new WhereClause()).
+					table(primaryTable).
+					fieldName(TransactionFieldNames.TRANS_ID).
+					comparison(SQLComparisonType.EQUALS)
+			)),
+			null,
+			(ps) -> {
+				try {
+					ps.setObject(1, id);
+				} catch (SQLException e) {}
+
+				return ps;
+			}
+		);
+	}
 
 	public TransactionRepository() {
 		super(DatabaseTable.TRANSACTION);
