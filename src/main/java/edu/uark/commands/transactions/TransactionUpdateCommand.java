@@ -37,7 +37,7 @@ public class TransactionUpdateCommand implements ResultCommandInterface<Transact
 	public int getTrans_id() {
 		return this.trans_id;
 	}
-	public TransactionUpdateCommand setTransactionId(UUID transactionId) {
+	public TransactionUpdateCommand setTransactionId(int trans_id) {
 		this.trans_id = trans_id;
 		return this;
 	}
