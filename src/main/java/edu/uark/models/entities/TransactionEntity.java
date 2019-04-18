@@ -19,30 +19,30 @@ public class TransactionEntity extends BaseEntity<TransactionEntity>
 {
     @Override
 	protected void fillFromRecord(ResultSet rs) throws SQLException {
-		this.trans_id = rs.getInt(TransactionFieldNames.TRANS_ID);
+		
 	}
 
 	@Override
 	protected Map<String, Object> fillRecord(Map<String, Object> record) {
-		record.put(TransactionFieldNames.TRANS_ID, this.trans_id);		
+		//record.put(TransactionFieldNames.TRANS_ID, this.trans_id);		
 		return record;
     }
     
     public Transaction synchronize(Transaction apiTransaction) {
-		this.setTrans_id(apiTransaction.getTrans_id());
+		this.setTrans_Id(apiTransaction.getTrans_Id());
 		
 		
-		//apiTransaction.setId(this.getId());
+		apiTransaction.setTrans_Id(this.getId());
 		//apiTransaction.setCreatedOn(this.getCreatedOn());
 		
 		return apiTransaction;
 	}
 
-	private int trans_id;
-	public int getTrans_id() {
+	private UUID trans_id;
+	public UUID getTrans_Id() {
 		return this.trans_id;
 	}
-	public TransactionEntity setTrans_id(int Trans_Id) {
+	public TransactionEntity setTrans_Id(UUID Trans_Id) {
 		if (!(this.trans_id == Trans_Id)) {
 			this.trans_id = Trans_Id;
 			this.propertyChanged(TransactionFieldNames.TRANS_ID);
@@ -52,10 +52,10 @@ public class TransactionEntity extends BaseEntity<TransactionEntity>
 	}
 
 	private UUID product_id;
-	public UUID getProduct_id() {
+	public UUID getProduct_Id() {
 		return this.product_id;
 	}
-	public TransactionEntity setProduct_id(UUID product_id) {
+	public TransactionEntity setProduct_Id(UUID product_id) {
 		if (!(this.product_id == product_id))
 		{
 			this.product_id = product_id;
@@ -131,11 +131,11 @@ public class TransactionEntity extends BaseEntity<TransactionEntity>
 		return this;
 	}
 
-	private int return_id;
-	public int getReturn_id() {
+	private UUID return_id;
+	public UUID getReturn_Id() {
 		return this.return_id;
 	}
-	public TransactionEntity setReturn_id(int return_id) {
+	public TransactionEntity setReturn_Id(UUID return_id) {
 		if (!(this.return_id == return_id)) {
 			this.return_id = return_id;
 			this.propertyChanged(TransactionFieldNames.RETURN_ID);
@@ -145,10 +145,10 @@ public class TransactionEntity extends BaseEntity<TransactionEntity>
 	}
 
 	private String employee_id;
-	public String getEmployee_id() {
+	public String getEmployee_Id() {
 		return this.employee_id;
 	}
-	public TransactionEntity setEmployee_id(String employee_id) {
+	public TransactionEntity setEmployee_Id(String employee_id) {
 		if (!(this.employee_id == employee_id)) {
 			this.employee_id = employee_id;
 			this.propertyChanged(TransactionFieldNames.EMPLOYEE_ID);
@@ -160,14 +160,14 @@ public class TransactionEntity extends BaseEntity<TransactionEntity>
 	public TransactionEntity() {
 		super(DatabaseTable.TRANSACTION);
 		
-		this.trans_id = -1;
+		this.trans_id = new UUID(0,0);
 		
 	}
 	
 	public TransactionEntity(Transaction apiTransaction) {
 		super(DatabaseTable.TRANSACTION);
 		
-		this.trans_id = apiTransaction.getTrans_id();
+		this.trans_id = apiTransaction.getTrans_Id();
 		
 	}
 }

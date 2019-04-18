@@ -2,6 +2,8 @@ package edu.uark.models.repositories;
 
 import java.sql.SQLException;
 
+import java.util.UUID;
+
 import edu.uark.dataaccess.repository.BaseRepository;
 import edu.uark.dataaccess.repository.DatabaseTable;
 import edu.uark.dataaccess.repository.helpers.PostgreFunctionType;
@@ -14,7 +16,7 @@ import edu.uark.models.repositories.interfaces.TransactionRepositoryInterface;
 
 public class TransactionRepository extends BaseRepository<TransactionEntity> implements TransactionRepositoryInterface {
 	@Override
-	public TransactionEntity byTransaction_Id(String transaction_id) {
+	public TransactionEntity byTransaction_Id(UUID transaction_id) {
 		return this.firstOrDefaultWhere(
 			new WhereContainer(
 				(new WhereClause()).
@@ -25,7 +27,7 @@ public class TransactionRepository extends BaseRepository<TransactionEntity> imp
 			),
 			(ps) -> {
 				try {
-					ps.setObject(1, transaction_id.toLowerCase());
+					ps.setObject(1, transaction_id);
 				} catch (SQLException e) {}
 
 				return ps;

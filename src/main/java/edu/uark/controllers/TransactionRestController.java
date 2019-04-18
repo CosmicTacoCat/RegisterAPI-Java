@@ -31,5 +31,12 @@ public class TransactionRestController
 			setTransactionId(transactionId).
 			execute();
 	}
+
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	public Transaction createTransaction(@RequestBody Transaction transaction) {
+		return (new TransactionCreateCommand()).
+			setApiTransaction(transaction).
+			execute();
+	}
 	
 }

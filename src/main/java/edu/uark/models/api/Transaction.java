@@ -6,20 +6,20 @@ import java.util.UUID;
 import edu.uark.models.entities.TransactionEntity;
 
 public class Transaction {
-	private int trans_id;
-	public int getTrans_id() {
+	private UUID trans_id;
+	public UUID getTrans_Id() {
 		return this.trans_id;
 	}
-	public Transaction setTrans_id(int trans_id) {
+	public Transaction setTrans_Id(UUID trans_id) {
 		this.trans_id = trans_id;
 		return this;
 	}
 
 	private UUID product_id;
-	public UUID getProduct_id() {
+	public UUID getProduct_Id() {
 		return this.product_id;
 	}
-	public Transaction setProduct_id(UUID product_id) {
+	public Transaction setProduct_Id(UUID product_id) {
 		this.product_id = product_id;
 		return this;
 	}
@@ -69,45 +69,45 @@ public class Transaction {
 		return this;
 	}
 
-	private int return_id;
-	public int getReturn_id() {
+	private UUID return_id;
+	public UUID getReturn_Id() {
 		return this.return_id;
 	}
-	public Transaction setReturn_id(int return_id) {
+	public Transaction setReturn_Id(UUID return_id) {
 		this.return_id = return_id;
 		return this;
 	}
 
 	private String employee_id;
-	public String getEmployee_id() {
+	public String getEmployee_Id() {
 		return this.employee_id;
 	}
-	public Transaction setEmployee_id(String employee_id) {
+	public Transaction setEmployee_Id(String employee_id) {
 		this.employee_id = employee_id;
 		return this;
 	}
 
 	public Transaction() {
-		this.trans_id = -1;
+		this.trans_id = new UUID(0,0);
 		this.product_id = new UUID(0, 0);
 		this.quantity = -1;
 		this.sub_total = -1;
 		this.total = -1;
 		this.items = -1;
 		this.returnType = false;
-		this.return_id = -1;
+		this.return_id = new UUID(0,0);
 		this.employee_id = "";
 	}
 	
 	public Transaction(TransactionEntity transactionEntity) {
-		this.trans_id = transactionEntity.getTrans_id();
-		this.product_id = transactionEntity.getProduct_id();
+		this.trans_id = transactionEntity.getTrans_Id();
+		this.product_id = transactionEntity.getProduct_Id();
 		this.quantity = transactionEntity.getQuantity();
 		this.sub_total = transactionEntity.getSub_total();
 		this.total = transactionEntity.getTotal();
 		this.items = transactionEntity.getItems();
 		this.returnType = transactionEntity.getReturn();
-		this.return_id = transactionEntity.getReturn_id();
-		this.employee_id = transactionEntity.getEmployee_id();
+		this.return_id = transactionEntity.getReturn_Id();
+		this.employee_id = transactionEntity.getEmployee_Id();
 	}
 }

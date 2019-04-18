@@ -1,5 +1,7 @@
 package edu.uark.commands.transactions;
 
+import java.util.UUID;
+
 import edu.uark.commands.ResultCommandInterface;
 import edu.uark.controllers.exceptions.NotFoundException;
 import edu.uark.models.api.Transaction;
@@ -19,12 +21,12 @@ public class TransactionQuery implements ResultCommandInterface<Transaction> {
 		}
 	}
 	
-	private int transactionId;
-	public int getTransactionId() {
+	private UUID transactionId;
+	public UUID getTransactionId() {
 		return this.transactionId;
 	}
 	
-	public TransactionQuery setTransactionId (int transactionId) {
+	public TransactionQuery setTransactionId (UUID transactionId) {
 		this.transactionId = transactionId;
 		return this;
 	}

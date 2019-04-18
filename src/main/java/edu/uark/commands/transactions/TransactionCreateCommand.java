@@ -18,7 +18,7 @@ public class TransactionCreateCommand implements ResultCommandInterface<Transact
 			throw new UnprocessableEntityException("lookupcode");
 		}*/
 
-		TransactionEntity transactionEntity = this.transactionRepository.byTransaction_Id(Integer.toString(this.apiTransaction.getTrans_id()));
+		TransactionEntity transactionEntity = this.transactionRepository.byTransaction_Id(this.apiTransaction.getTrans_Id());
 		if (transactionEntity != null) {
 			throw new ConflictException("trans_id"); //Transaction ID already defined for another Transaction.
 		}
