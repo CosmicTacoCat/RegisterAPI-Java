@@ -16,7 +16,7 @@ public class ProductEntity extends BaseEntity<ProductEntity> {
 	protected void fillFromRecord(ResultSet rs) throws SQLException {
 		this.lookupCode = rs.getString(ProductFieldNames.LOOKUP_CODE);
 		this.count = rs.getInt(ProductFieldNames.COUNT);
-		this.price = rs.getPrice(ProductFieldNames.PRICE);
+		this.price = rs.getInt(ProductFieldNames.PRICE);
 	}
 
 	@Override
