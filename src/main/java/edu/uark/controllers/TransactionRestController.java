@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import edu.uark.models.api.Transaction;
+import edu.uark.commands.transactions.TransactionQuery;
 import edu.uark.commands.transactions.TransactionsQuery;
 import edu.uark.commands.transactions.TransactionCreateCommand;
 
@@ -22,11 +23,13 @@ public class TransactionRestController
 	public List<Transaction> getTransactions() {
 		return (new TransactionsQuery()).execute();
 	}
-
-	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public Transaction createTransaction(@RequestBody Transaction transaction) {
-		return (new TransactionCreateCommand()).
-			setApiTransaction(transaction).
+	
+	//Perhaps Requesting a single transaction should retrieve the products involved as well.
+	@RequestMapping(value = "/{transaction_id}", method = RequestMethod.GET)
+	public Transaction getTransaction(@PathVariable UUID transactionId) {
+		return (new TransactionQuery()).
+			setTransactionId(transactionId).
 			execute();
 	}
+	
 }
