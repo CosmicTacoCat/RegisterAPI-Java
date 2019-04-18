@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import edu.uark.models.api.Transaction;
 import edu.uark.commands.transactions.TransactionQuery;
 import edu.uark.commands.transactions.TransactionsQuery;
+import edu.uark.commands.transactions.TransactionCreateCommand;
 
 @RestController
 @RequestMapping(value = "/api/transaction")
