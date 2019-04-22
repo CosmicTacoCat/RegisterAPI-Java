@@ -101,9 +101,6 @@ public class Transaction {
 	
 	public Transaction(TransactionEntity transactionEntity) {
 		this.trans_id = transactionEntity.getTrans_Id();
-		this.product_id = transactionEntity.getProduct_Id();
-		this.quantity = transactionEntity.getQuantity();
-		this.sub_total = transactionEntity.getSub_total();
 		this.total = transactionEntity.getTotal();
 		this.items = transactionEntity.getItems();
 		this.returnType = transactionEntity.getReturn();

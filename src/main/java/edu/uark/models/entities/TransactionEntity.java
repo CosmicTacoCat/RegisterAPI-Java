@@ -51,7 +51,7 @@ public class TransactionEntity extends BaseEntity<TransactionEntity>
 		return this;
 	}
 
-	private UUID product_id;
+	/*private UUID product_id;
 	public UUID getProduct_Id() {
 		return this.product_id;
 	}
@@ -90,7 +90,7 @@ public class TransactionEntity extends BaseEntity<TransactionEntity>
 		}
 
 		return this;
-	}
+	}*/
 	
 	private int total;
 	public int getTotal() {
