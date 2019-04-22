@@ -14,7 +14,7 @@ import edu.uark.models.entities.TransactionEntity;
 import edu.uark.models.entities.fieldnames.TransactionFieldNames;
 import edu.uark.models.repositories.interfaces.TransactionRepositoryInterface;
 
-public class TransactionRepository extends BaseRepository<TransactionEntity> implements TransactionRepositoryInterface {
+public class ProdInTransRepository extends BaseRepository<TransactionEntity> implements TransactionRepositoryInterface {
 	@Override
 	public TransactionEntity byTransaction_Id(UUID transaction_id) {
 		return this.firstOrDefaultWhere(
@@ -61,7 +61,7 @@ public class TransactionRepository extends BaseRepository<TransactionEntity> imp
 		);
 	}
 
-	public TransactionRepository() {
-		super(DatabaseTable.TRANSACTION);
+	public ProdInTransRepository() {
+		super(DatabaseTable.PRODUCT_IN_TRANSACTION);
 	}
 }
