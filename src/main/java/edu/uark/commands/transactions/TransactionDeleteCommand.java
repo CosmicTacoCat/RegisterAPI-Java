@@ -20,11 +20,11 @@ public class TransactionDeleteCommand implements VoidCommandInterface {
 	}
 
 	//Properties
-	private UUID trans_id;
-	public UUID getTrans_id() {
+	private int trans_id;
+	public int getTrans_id() {
 		return this.trans_id;
 	}
-	public TransactionDeleteCommand setTrans_id(UUID trans_id) {
+	public TransactionDeleteCommand setTrans_id(int trans_id) {
 		this.trans_id = trans_id;
 		return this;
 	}

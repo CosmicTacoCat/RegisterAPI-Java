@@ -21,12 +21,12 @@ public class TransactionQuery implements ResultCommandInterface<Transaction> {
 		}
 	}
 	
-	private UUID transactionId;
-	public UUID getTransactionId() {
+	private int transactionId;
+	public int getTransactionId() {
 		return this.transactionId;
 	}
 	
-	public TransactionQuery setTransactionId (UUID transactionId) {
+	public TransactionQuery setTransactionId(int transactionId) {
 		this.transactionId = transactionId;
 		return this;
 	}

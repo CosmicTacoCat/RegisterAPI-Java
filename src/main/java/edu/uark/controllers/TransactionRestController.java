@@ -26,7 +26,7 @@ public class TransactionRestController
 	
 	//Perhaps Requesting a single transaction should retrieve the products involved as well.
 	@RequestMapping(value = "/{transaction_id}", method = RequestMethod.GET)
-	public Transaction getTransaction(@PathVariable UUID transactionId) {
+	public Transaction getTransaction(@PathVariable int transactionId) {
 		return (new TransactionQuery()).
 			setTransactionId(transactionId).
 			execute();
