@@ -32,17 +32,17 @@ public class TransactionEntity extends BaseEntity<TransactionEntity>
 		this.setTrans_Id(apiTransaction.getTrans_Id());
 		
 		
-		apiTransaction.setTrans_Id(this.getId());
+		apiTransaction.setTrans_Id(this.gettId());
 		//apiTransaction.setCreatedOn(this.getCreatedOn());
 		
 		return apiTransaction;
 	}
 
-	private UUID trans_id;
-	public UUID getTrans_Id() {
+	private int trans_id;
+	public int getTrans_Id() {
 		return this.trans_id;
 	}
-	public TransactionEntity setTrans_Id(UUID Trans_Id) {
+	public TransactionEntity setTrans_Id(int Trans_Id) {
 		if (!(this.trans_id == Trans_Id)) {
 			this.trans_id = Trans_Id;
 			this.propertyChanged(TransactionFieldNames.TRANS_ID);
@@ -160,7 +160,7 @@ public class TransactionEntity extends BaseEntity<TransactionEntity>
 	public TransactionEntity() {
 		super(DatabaseTable.TRANSACTION);
 		
-		this.trans_id = new UUID(0,0);
+		this.trans_id = -1;
 		
 	}
 	

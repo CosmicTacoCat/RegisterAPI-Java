@@ -6,5 +6,5 @@ import edu.uark.dataaccess.repository.BaseRepositoryInterface;
 import edu.uark.models.entities.TransactionEntity;
 
 public interface TransactionRepositoryInterface extends BaseRepositoryInterface<TransactionEntity> {
-	TransactionEntity byTransaction_Id(UUID transaction_Id);
+	TransactionEntity byTransaction_Id(int transaction_Id);
 }

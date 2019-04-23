@@ -22,6 +22,11 @@ public abstract class BaseEntity<T extends BaseEntity<T>> {
 		return this.id;
 	}
 
+	protected int tid;
+	public int gettId() {
+		return this.tid;
+	}
+
 	private LocalDateTime createdOn;
 	public LocalDateTime getCreatedOn() {
 		return this.createdOn;

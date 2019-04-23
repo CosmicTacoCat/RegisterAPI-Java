@@ -16,7 +16,7 @@ import edu.uark.models.repositories.interfaces.TransactionRepositoryInterface;
 
 public class TransactionRepository extends BaseRepository<TransactionEntity> implements TransactionRepositoryInterface {
 	@Override
-	public TransactionEntity byTransaction_Id(UUID transaction_id) {
+	public TransactionEntity byTransaction_Id(int transaction_id) {
 		return this.firstOrDefaultWhere(
 			new WhereContainer(
 				(new WhereClause()).
@@ -41,7 +41,7 @@ public class TransactionRepository extends BaseRepository<TransactionEntity> imp
 	}
 	
 	//BaseRepository's get method parameter is UUID whereas our transaction ids are integers.
-	public TransactionEntity get(UUID id) {
+	public TransactionEntity get(int id) {
 		return firstOrDefaultWhere(
 			null,
 			(new WhereContainer(

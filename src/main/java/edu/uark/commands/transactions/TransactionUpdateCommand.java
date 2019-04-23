@@ -16,7 +16,7 @@ public class TransactionUpdateCommand implements ResultCommandInterface<Transact
 	@Override
 	public Transaction execute() {
 		//Validations
-		if (this.apiTransaction.getTrans_Id() == new UUID(0, 0)) {
+		if (this.apiTransaction.getTrans_Id() == -1) {
 			throw new UnprocessableEntityException("trans_id");
 		}
 

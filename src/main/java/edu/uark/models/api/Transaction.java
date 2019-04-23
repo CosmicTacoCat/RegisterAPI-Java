@@ -6,11 +6,11 @@ import java.util.UUID;
 import edu.uark.models.entities.TransactionEntity;
 
 public class Transaction {
-	private UUID trans_id;
-	public UUID getTrans_Id() {
+	private int trans_id;
+	public int getTrans_Id() {
 		return this.trans_id;
 	}
-	public Transaction setTrans_Id(UUID trans_id) {
+	public Transaction setTrans_Id(int trans_id) {
 		this.trans_id = trans_id;
 		return this;
 	}
@@ -88,7 +88,7 @@ public class Transaction {
 	}
 
 	public Transaction() {
-		this.trans_id = new UUID(0,0);
+		this.trans_id = -1;
 		this.product_id = new UUID(0, 0);
 		this.quantity = -1;
 		this.sub_total = -1;

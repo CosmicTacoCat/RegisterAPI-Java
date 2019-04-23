@@ -16,7 +16,7 @@ import edu.uark.models.repositories.interfaces.TransactionRepositoryInterface;
 
 public class ProdInTransRepository extends BaseRepository<TransactionEntity> implements TransactionRepositoryInterface {
 	@Override
-	public TransactionEntity byTransaction_Id(UUID transaction_id) {
+	public TransactionEntity byTransaction_Id(int transaction_id) {
 		return this.firstOrDefaultWhere(
 			new WhereContainer(
 				(new WhereClause()).
