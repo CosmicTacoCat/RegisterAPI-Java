@@ -6,6 +6,16 @@ import java.util.UUID;
 import edu.uark.models.entities.TransactionEntity;
 
 public class Transaction {
+	
+	private UUID id;
+	public UUID getId() {
+		return this.id;
+	}
+	public Transaction setId(UUID id) {
+		this.id = id;
+		return this;
+	}
+
 	private int trans_id;
 	public int getTrans_Id() {
 		return this.trans_id;
@@ -69,11 +79,11 @@ public class Transaction {
 		return this;
 	}
 
-	private UUID return_id;
-	public UUID getReturn_Id() {
+	private int return_id;
+	public int getReturn_Id() {
 		return this.return_id;
 	}
-	public Transaction setReturn_Id(UUID return_id) {
+	public Transaction setReturn_Id(int return_id) {
 		this.return_id = return_id;
 		return this;
 	}
@@ -87,6 +97,15 @@ public class Transaction {
 		return this;
 	}
 
+	private LocalDateTime createdOn;
+	public LocalDateTime getCreatedOn() {
+		return this.createdOn;
+	}
+	public Transaction setCreatedOn(LocalDateTime createdOn) {
+		this.createdOn = createdOn;
+		return this;
+	}
+
 	public Transaction() {
 		this.trans_id = -1;
 		this.product_id = new UUID(0, 0);
@@ -95,7 +114,7 @@ public class Transaction {
 		this.total = -1;
 		this.items = -1;
 		this.returnType = false;
-		this.return_id = new UUID(0,0);
+		this.return_id = -1;
 		this.employee_id = "";
 	}
 	
@@ -103,7 +122,7 @@ public class Transaction {
 		this.trans_id = transactionEntity.getTrans_Id();
 		this.total = transactionEntity.getTotal();
 		this.items = transactionEntity.getItems();
-		this.returnType = transactionEntity.getReturn();
+		//this.returnType = transactionEntity.getReturn();
 		this.return_id = transactionEntity.getReturn_Id();
 		this.employee_id = transactionEntity.getEmployee_Id();
 	}

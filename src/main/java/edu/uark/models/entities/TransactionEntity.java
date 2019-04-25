@@ -19,21 +19,35 @@ public class TransactionEntity extends BaseEntity<TransactionEntity>
 {
     @Override
 	protected void fillFromRecord(ResultSet rs) throws SQLException {
-		
+		this.trans_id = rs.getInt(TransactionFieldNames.TRANS_ID);
+		this.total = rs.getInt(TransactionFieldNames.TOTAL);
+		this.items = rs.getInt(TransactionFieldNames.ITEMS);
+		//this.returnType = rs.getString(TransactionFieldNames.RETURNTYPE);
+		this.return_id = rs.getInt(TransactionFieldNames.RETURN_ID);
+		this.employee_id = rs.getString(TransactionFieldNames.EMPLOYEE_ID);
 	}
 
 	@Override
 	protected Map<String, Object> fillRecord(Map<String, Object> record) {
-		//record.put(TransactionFieldNames.TRANS_ID, this.trans_id);		
+		record.put(TransactionFieldNames.TRANS_ID, this.trans_id);
+		record.put(TransactionFieldNames.TOTAL, this.total);
+		record.put(TransactionFieldNames.ITEMS, this.items);
+		//record.put(TransactionFieldNames.RETURNTYPE, this.returnType);
+		record.put(TransactionFieldNames.RETURN_ID, this.return_id);
+		record.put(TransactionFieldNames.EMPLOYEE_ID, this.employee_id);	
 		return record;
     }
     
     public Transaction synchronize(Transaction apiTransaction) {
 		this.setTrans_Id(apiTransaction.getTrans_Id());
+		this.setTotal(apiTransaction.getTotal());
+		this.setItems(apiTransaction.getItems());
+		this.setReturn_Id(apiTransaction.getReturn_Id());
+		this.setEmployee_Id(apiTransaction.getEmployee_Id());
 		
 		
-		apiTransaction.setTrans_Id(this.gettId());
-		//apiTransaction.setCreatedOn(this.getCreatedOn());
+		apiTransaction.setId(this.getId());
+		apiTransaction.setCreatedOn(this.getCreatedOn());
 		
 		return apiTransaction;
 	}
@@ -118,7 +132,7 @@ public class TransactionEntity extends BaseEntity<TransactionEntity>
 		return this;
 	}
 
-	private boolean returnType;
+	/*private boolean returnType;
 	public boolean getReturn() {
 		return this.returnType;
 	}
@@ -129,13 +143,13 @@ public class TransactionEntity extends BaseEntity<TransactionEntity>
 		}
 
 		return this;
-	}
+	}*/
 
-	private UUID return_id;
-	public UUID getReturn_Id() {
+	private int return_id;
+	public int getReturn_Id() {
 		return this.return_id;
 	}
-	public TransactionEntity setReturn_Id(UUID return_id) {
+	public TransactionEntity setReturn_Id(int return_id) {
 		if (!(this.return_id == return_id)) {
 			this.return_id = return_id;
 			this.propertyChanged(TransactionFieldNames.RETURN_ID);
@@ -161,6 +175,11 @@ public class TransactionEntity extends BaseEntity<TransactionEntity>
 		super(DatabaseTable.TRANSACTION);
 		
 		this.trans_id = -1;
+		this.total = -1;
+		this.items = -1;
+		this.return_id = -1;
+		this.employee_id = StringUtils.EMPTY;
+			
 		
 	}
 	
@@ -168,6 +187,10 @@ public class TransactionEntity extends BaseEntity<TransactionEntity>
 		super(DatabaseTable.TRANSACTION);
 		
 		this.trans_id = apiTransaction.getTrans_Id();
+		this.total = apiTransaction.getTotal();
+		this.items = apiTransaction.getItems();
+		this.return_id = apiTransaction.getReturn_Id();
+		this.employee_id = apiTransaction.getEmployee_Id();
 		
 	}
 }
