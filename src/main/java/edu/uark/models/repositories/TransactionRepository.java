@@ -16,18 +16,18 @@ import edu.uark.models.repositories.interfaces.TransactionRepositoryInterface;
 
 public class TransactionRepository extends BaseRepository<TransactionEntity> implements TransactionRepositoryInterface {
 	@Override
-	public TransactionEntity byTransaction_Id(int transaction_id) {
+	public TransactionEntity byTransaction_Id(String id ){
 		return this.firstOrDefaultWhere(
 			new WhereContainer(
 				(new WhereClause()).
 					postgreFunction(PostgreFunctionType.LOWER).
 					table(this.primaryTable).
-					fieldName(TransactionFieldNames.TRANS_ID).
+					fieldName(TransactionFieldNames.ID).
 					comparison(SQLComparisonType.EQUALS)
 			),
 			(ps) -> {
 				try {
-					ps.setObject(1, transaction_id);
+					ps.setObject(1, id);
 				} catch (SQLException e) {}
 
 				return ps;
@@ -41,7 +41,7 @@ public class TransactionRepository extends BaseRepository<TransactionEntity> imp
 	}
 	
 	//BaseRepository's get method parameter is UUID whereas our transaction ids are integers.
-	public TransactionEntity get(int id) {
+	/*public TransactionEntity get(int id) {
 		return firstOrDefaultWhere(
 			null,
 			(new WhereContainer(
@@ -59,7 +59,7 @@ public class TransactionRepository extends BaseRepository<TransactionEntity> imp
 				return ps;
 			}
 		);
-	}
+	}*/
 
 	public TransactionRepository() {
 		super(DatabaseTable.TRANSACTION);
