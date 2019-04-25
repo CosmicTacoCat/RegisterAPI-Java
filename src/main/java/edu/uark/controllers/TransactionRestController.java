@@ -13,6 +13,7 @@ import edu.uark.models.api.Transaction;
 import edu.uark.commands.transactions.TransactionQuery;
 import edu.uark.commands.transactions.TransactionsQuery;
 import edu.uark.commands.transactions.TransactionCreateCommand;
+import java.util.ArrayList;;
 
 @RestController
 @RequestMapping(value = "/api/transaction")
@@ -33,7 +34,7 @@ public class TransactionRestController
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public Transaction createTransaction(@RequestBody Transaction transaction) {
+	public Transaction createTransaction(@RequestBody ArrayList<Transaction> transaction) {
 		return (new TransactionCreateCommand()).
 			setApiTransaction(transaction).
 			execute();

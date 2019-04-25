@@ -12,6 +12,7 @@ import edu.uark.models.repositories.TransactionRepository;
 import edu.uark.models.repositories.ProdInTransRepository;
 import edu.uark.models.repositories.interfaces.TransactionRepositoryInterface;
 import edu.uark.models.repositories.interfaces.ProdInTransRepositoryInterface;
+import java.util.ArrayList;
 
 public class TransactionCreateCommand implements ResultCommandInterface<Transaction> {
 	@Override
@@ -43,8 +44,11 @@ public class TransactionCreateCommand implements ResultCommandInterface<Transact
 	public Transaction getApiTransaction() {
 		return this.apiTransaction;
 	}
-	public TransactionCreateCommand setApiTransaction(Transaction apiTransaction) {
-		this.apiTransaction = apiTransaction;
+	public TransactionCreateCommand setApiTransaction(ArrayList<Transaction> apiTransaction) {
+		for(int i =0; i<apiTransaction.size(); i++)
+		{
+			this.apiTransaction = apiTransaction.get(i);
+		}
 		return this;
 	}
 	
