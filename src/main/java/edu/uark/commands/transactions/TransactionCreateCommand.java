@@ -48,10 +48,14 @@ public class TransactionCreateCommand implements ResultCommandInterface<Transact
 		return this.apiTransaction;
 	}
 	public TransactionCreateCommand setApiTransaction(ArrayList<Transaction> apiTransaction) {
-		for(int i =0; i<apiTransaction.size(); i++)
-		{
-			this.apiTransaction.setId(apiTransaction.get(i).getId());
-		}
+		//for(int i =0; i<apiTransaction.size(); i++)
+		//{
+			//This just keeps setting the Id of the single apiTransaction in this class.
+			//So only the last Transaction object on the arraylist affects it in the end.
+			//Also, this.apiTransaction is still null when the below line is executed. (Null exception)
+			//this.apiTransaction.setId(apiTransaction.get(i).getId());
+			this.apiTransaction = apiTransaction.get(0);
+		//}
 		return this;
 	}
 
