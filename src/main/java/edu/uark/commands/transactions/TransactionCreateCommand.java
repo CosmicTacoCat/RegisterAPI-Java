@@ -6,6 +6,8 @@ import edu.uark.commands.ResultCommandInterface;
 import edu.uark.controllers.exceptions.ConflictException;
 import edu.uark.controllers.exceptions.UnprocessableEntityException;
 import edu.uark.models.api.Transaction;
+import edu.uark.models.api.Cart;
+
 import edu.uark.models.entities.TransactionEntity;
 import edu.uark.models.entities.ProdInTransEntity;
 import edu.uark.models.repositories.TransactionRepository;
@@ -65,6 +67,13 @@ public class TransactionCreateCommand implements ResultCommandInterface<Transact
 			//this.apiTransaction.setId(apiTransaction.get(i).getId());
 			this.apiTransaction = apiTransaction.get(0);
 		//}
+		return this;
+	}
+	
+	private Cart cart;
+	public TransactionCreateCommand setApiCart(Cart cart)
+	{
+		this.cart = cart;
 		return this;
 	}
 

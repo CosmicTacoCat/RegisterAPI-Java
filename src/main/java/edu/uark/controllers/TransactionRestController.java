@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import edu.uark.models.api.Transaction;
+import edu.uark.models.api.Cart;
 import edu.uark.commands.transactions.TransactionQuery;
 import edu.uark.commands.transactions.TransactionsQuery;
 import edu.uark.commands.transactions.TransactionCreateCommand;
@@ -33,10 +34,17 @@ public class TransactionRestController
 			execute();
 	}
 
-	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public Transaction createTransaction(@RequestBody ArrayList<Transaction> transaction) {
 		return (new TransactionCreateCommand()).
 			setApiTransaction(transaction).
+			execute();
+	}*/
+	
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	public Transaction createTransaction(@RequestBody Cart cart) {
+		return (new TransactionCreateCommand()).
+			setApiCart(cart).
 			execute();
 	}
 	
