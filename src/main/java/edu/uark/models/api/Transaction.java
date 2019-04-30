@@ -107,7 +107,7 @@ public class Transaction {
 	}
 
 	public Transaction() {
-		//this.trans_id = -1;
+		this.trans_id = -1;
 		this.id = new UUID(0,0);
 		this.product_id = new UUID(0, 0);
 		this.quantity = -1;
