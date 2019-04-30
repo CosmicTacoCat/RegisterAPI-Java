@@ -29,7 +29,7 @@ public class TransactionEntity extends BaseEntity<TransactionEntity>
 
 	@Override
 	protected Map<String, Object> fillRecord(Map<String, Object> record) {
-		//record.put(TransactionFieldNames.TRANS_ID, this.trans_id);
+		record.put(TransactionFieldNames.TRANS_ID, this.trans_id);
 		record.put(TransactionFieldNames.TOTAL, this.total);
 		record.put(TransactionFieldNames.ITEMS, this.items);
 		//record.put(TransactionFieldNames.RETURNTYPE, this.returnType);
