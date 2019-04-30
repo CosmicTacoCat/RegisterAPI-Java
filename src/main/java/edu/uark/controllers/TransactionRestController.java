@@ -34,18 +34,18 @@ public class TransactionRestController
 			execute();
 	}
 
-	/*@RequestMapping(value = "/create", method = RequestMethod.POST)
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public Transaction createTransaction(@RequestBody ArrayList<Transaction> transaction) {
 		return (new TransactionCreateCommand()).
 			setApiTransaction(transaction).
 			execute();
-	}*/
+	}
 	
-	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public Transaction createTransaction(@RequestBody Cart cart) {
 		return (new TransactionCreateCommand()).
 			setApiCart(cart).
 			execute();
-	}
+	}*/
 	
 }
