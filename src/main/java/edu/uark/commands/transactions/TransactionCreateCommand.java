@@ -21,18 +21,27 @@ public class TransactionCreateCommand implements ResultCommandInterface<Transact
 		/*if (StringUtils.isBlank(this.apiProduct.getLookupCode())) {
 			throw new UnprocessableEntityException("lookupcode");
 		}*/
-
+		
+		/*Christian: TransactionEntity does not have a UUID id member.
+		 * 
+		 * Checking if this transaction exists or not shouldn't be necessary here since the database should be the one creating
+		 * 	the trans_id based of a sequence.*/
 		TransactionEntity transactionEntity = this.transactionRepository.byTransaction_Id(String.valueOf(this.apiTransaction.getTrans_Id()));
 		if (transactionEntity != null) {
 			throw new ConflictException("trans_id"); //Transaction ID already defined for another Transaction.
 		}
 		
+		/*Christian: ~~apiTransaction's trans_id just won't deserialize correctly!!~~
+		 * It'll default to -1, like in the Transaction constructor.
+		 * Also, the database is supposed to incrementing trans_id, so we wouldn't need this anyway, but it doesn't seem to be.*/
 		//No ENTITY object was returned from the database, thus the API object's Transaction id must be unique.
 		transactionEntity = new TransactionEntity(apiTransaction); //Create a new ENTITY object from the API object details.
 		transactionEntity.save(); //Write, via an INSERT, the new record to the database.
 
+		/*Christian: productintransRepository itself is null. This is causing a null pointer exception.*/
 		ProdInTransEntity prodintransEntity = this.prodintransRepository.byTransaction_Id(this.apiTransaction.getTrans_Id());
 
+		/*Christian: Currently just saves the same apiTransaction into another table (not what it should do)*/
 		prodintransEntity = new ProdInTransEntity(apiTransaction);
 		prodintransEntity.save();
 		
