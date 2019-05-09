@@ -20,6 +20,8 @@ import edu.uark.models.api.Product;
 
 @RestController
 @RequestMapping(value = "/api/product")
+
+//Might need to use this as a reference when creating the existing employee search.
 public class ProductRestController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public List<Product> getProducts() {

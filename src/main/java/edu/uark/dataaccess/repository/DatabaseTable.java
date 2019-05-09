@@ -2,8 +2,12 @@ package edu.uark.dataaccess.repository;
 
 public enum DatabaseTable {
 	NONE(""),
-	PRODUCT("product");
-	
+	EMPLOYEE("employee"),
+	PRODUCT("product"),
+	TRANSACTION("transaction"),
+	PRODUCT_IN_TRANSACTION("product_in_transaction");
+
+
 	public String getLabel() {
 		return label;
 	}

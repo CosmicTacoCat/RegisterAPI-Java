@@ -14,9 +14,9 @@ public class ProductCreateCommand implements ResultCommandInterface<Product> {
 	@Override
 	public Product execute() {
 		//Validations
-		if (StringUtils.isBlank(this.apiProduct.getLookupCode())) {
+		/*if (StringUtils.isBlank(this.apiProduct.getLookupCode())) {
 			throw new UnprocessableEntityException("lookupcode");
-		}
+		}*/
 
 		ProductEntity productEntity = this.productRepository.byLookupCode(this.apiProduct.getLookupCode());
 		if (productEntity != null) {
@@ -54,5 +54,5 @@ public class ProductCreateCommand implements ResultCommandInterface<Product> {
 	
 	public ProductCreateCommand() {
 		this.productRepository = new ProductRepository();
-	}
+	} 
 }

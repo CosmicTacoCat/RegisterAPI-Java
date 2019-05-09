@@ -48,6 +48,26 @@ public abstract class BaseRepository<T extends BaseEntity<T>> implements BaseRep
 		);
 	}
 	
+	public T get(int id) {
+		return firstOrDefaultWhere(
+			null,
+			(new WhereContainer(
+				(new WhereClause()).
+					table(primaryTable).
+					fieldName(BaseFieldNames.ID).
+					comparison(SQLComparisonType.EQUALS)
+			)),
+			null,
+			(ps) -> {
+				try {
+					ps.setObject(1, id);
+				} catch (SQLException e) {}
+
+				return ps;
+			}
+		);
+	}
+
 	public Collection<T> all() {
 		return allWhere(null, null, null, INVALID_INDEX, INVALID_INDEX, null);
 	}
